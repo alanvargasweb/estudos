@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #bloco {
+        width: 300px;
+        height: 300px;
+        background-color: brown;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<body>
+    <div id="bloco" >
+        <p>Clique aqui <span>0</span></p>
+    </div>
+</body>
+<script>
+    var elemento = document.getElementById('bloco');
+    var cont = document.getElementsByTagName('p')[0].getElementsByTagName('span')[0];
+    var number_of_cliques = 0;
+
+    elemento.addEventListener('mouseover', function() { clique('over')});
+    elemento.addEventListener('mouseover', function() { clique('out')});
+
+    function clique(param) {
+        
+        var bgc = document.getElementById('bloco').style.backgroundColor;
+        
+        if( param === 'over') {
+            document.getElementById('bloco').style.backgroundColor = 'violet';
+            number_of_cliques ++;
+            cont.innerText = number_of_cliques;
+            if (number_of_cliques > 10) {
+                document.getElementById('bloco').style.backgroundColor = 'black';
+            }
+        } else {
+            document.getElementById('bloco').style.backgroundColor = bgc;
+        }
+    }
+
+</script>
+</html>

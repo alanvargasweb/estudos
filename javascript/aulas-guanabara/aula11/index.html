@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #form form {
+        display: flex;
+
+    }
+</style>
+<body>
+    <div id="form">
+        <form action="">
+            <div><input type="text" name="via" id="via"></div>
+            <div>
+                <input type="range" min="0" max="300" name="velocidade" id="velocidade" onchange="updatevel()">
+            </div>
+            <div>
+                <input type="button" value="Validar" onclick="valid()">
+            </div>
+        </form>
+    </div>
+    <div id="result">
+        <p>aaa</p>
+    </div>
+</body>
+<script>
+    function updatevel() {
+        var vel = parseInt(document.getElementById('velocidade').value);
+        document.getElementById('result').innerHTML = vel;
+
+        if(vel > 35) {
+            document.getElementById('result').style.backgroundColor = "red";
+        } else {
+            document.getElementById('result').style.backgroundColor = "blue";
+        }
+    }
+
+    function valid() {
+
+        var nac = parseInt(document.getElementById('velocidade').value);
+
+        var txt = "";
+        if(nac > 60) {
+            txt =  `Veículo andando acima da velocidade permitira. Velocidade atual <strong>${nac}</strong>`;
+        } else {
+            txt = `Veiculo andando á <strong>${nac}</strong>`;
+        }
+        
+        document.getElementById('result').innerHTML = txt;
+    }
+</script>
+</html>

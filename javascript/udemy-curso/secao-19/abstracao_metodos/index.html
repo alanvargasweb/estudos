@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>teste<a href="#">1</a></p>
+    <p>teste<a href="#">2</a></p>
+    <p>teste<a href="#">3</a></p>
+    <p>teste<a href="#">4</a></p>
+    <p>teste<a href="#">5</a></p>
+</body>
+<script src="script.js"></script>
+<script>
+    // closure
+
+    // var closeOrOpen = (function() {
+    //     var status = 'is-close';
+    //     return function() {
+    //         status = (status === 'is-close') ? 'is-open' : 'is-close';
+    //         return status;
+
+    //     }
+    // })()
+
+
+    function teste() {
+        console.log(this);
+        var _self = this;
+        // setTimeout( () =>  console.log(this), 1000);
+
+        setTimeout(function(){
+            console.log(this)
+        }.bind(this), 1000)
+    }
+
+
+    // em uma arrow function, o this não sofre anlteraççção
+
+    // teste()
+
+    var obj = {
+        foo: teste
+    };
+
+    obj.foo();
+</script>
+</html>
